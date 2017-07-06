@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170706091416) do
   create_table "candidacies", force: :cascade do |t|
     t.integer "candidate_id", null: false
     t.integer "vote_id", null: false
-    t.integer "rank", null: false
+    t.integer "rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
