@@ -58,6 +58,8 @@ GEM
     erubi (1.6.1)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -200,6 +202,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bullet
+  factory_girl
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
