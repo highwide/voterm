@@ -22,6 +22,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :test do
