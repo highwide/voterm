@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: voterm_development
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: localhost
+  #port: 5432
+  #schema_search_path: myapp,sharedapp,public
+  #min_messages: notice
+test:
+  <<: *default
+  database: voterm_test
+#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+production:
+  <<: *default
+  database: voterm_production
+  username: voterm
+  password: <%= ENV['DATABASE_PASSWORD'] %>
