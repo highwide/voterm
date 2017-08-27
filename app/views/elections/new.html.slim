@@ -1,0 +1,17 @@
+h1 選挙を作成する
+
+= form_with model: @election, method: :post, local: true, class: 'form-horizontal' do |f|
+  .form-group.row
+    = f.label :title, 'タイトル', class: 'col-sm-2 control-label'
+    = f.text_field :title, class: 'col-sm-5 form-control-plaintext'
+  .form-group.row
+    = f.label :description, '説明', class: 'col-sm-2 control-label'
+    = f.text_field :description, class: 'col-sm-5 form-control-plaintext'
+  span.row 投票候補
+  = fields_for :candidates do |fc|
+    .form-group.row
+      = fc.label 'titles[]', '候補名', class: 'col-sm-2 control-label'
+      = fc.text_field 'titles[]', class: 'col-sm-5 form-control-plaintext'
+      = button_tag '候補を増やす', class: 'col-sm-offset-1 btn btn-info'
+  .form-group.col-sm-offset-2.col-sm-10
+    = f.submit '作成する', class: 'btn btn-primary'

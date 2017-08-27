@@ -1,0 +1,11 @@
+h1 = "#{@result.vote.title}の投票結果"
+
+- @result.vote.rounds.order(:order_num).each do |r|
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        h5 = "第#{r.order_num}ラウンドの結果"
+    .panel-body
+      = r.report
+
+= button_to '結果を削除する', result_path, method: :delete, data: { confirm: '投票結果を削除しますがよろしいですか？' }, class: 'btn btn-danger'

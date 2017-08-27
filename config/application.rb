@@ -20,6 +20,8 @@ module Voterm
   class Application < Rails::Application
     config.load_defaults 5.1
 
+    config.assets.paths << config.root.join("node_modules")
+
     config.generators do |g|
       g.system_tests false
       g.sylesheets   false

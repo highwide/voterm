@@ -1,0 +1,20 @@
+h1 #{@vote.title} の投票状況
+
+table.table.table-bordered.table-hover
+  thead.thead-default
+    tr
+      th #
+      - @vote.candidacies.each do |c|
+        th = c.candidate.title
+  tbody
+    - @vote.ballots.each do |b|
+      tr
+        th scope="row" = b.name
+        - b.ballot_candidacies.sort_by { |bc| bc.candidacy_id }.each do |bc|
+          td = "#{bc.rank}位"
+
+- if @vote.result.present?
+ = button_to '結果を見る', result_path(@vote.result.id), method: :get, class: 'btn btn-info'
+-else
+  = link_to '投票する', new_vote_ballot_path(@vote.id), method: :get, class: 'btn btn-primary'
+  = link_to '開票する', vote_results_path(@vote.id), method: :post, data: { confirm: '開票すると以降の投票ができなくなりますが、よろしいですか？' }, class: 'btn btn-success'

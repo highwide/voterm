@@ -1,0 +1,8 @@
+h1 投票一覧
+
+ul.list-group
+  - @votes.each do |v|
+    li.list-group-item
+      = link_to v.title, vote_path(v.id)
+
+= button_to '投票を作成する', new_election_vote_path, method: :get, class: 'btn btn-primary'

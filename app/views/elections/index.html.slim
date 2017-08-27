@@ -1,0 +1,8 @@
+h1 選挙一覧
+
+ul.list-group
+  - @elections.each do |e|
+    li.list-group-item
+      = link_to e.title, election_votes_path(e.id)
+
+= button_to '選挙を作成する', new_election_path, method: :get, class: 'btn btn-primary'
