@@ -1,6 +1,6 @@
 class Ballot < ApplicationRecord
-  belongs_to :candidacy
-  belongs_to :users
+  belongs_to :vote
+  has_many :ballot_candidacies
 
-  validates :rank, presence: true, numericality: { only_integer: true }
+  accepts_nested_attributes_for :ballot_candidacies
 end
