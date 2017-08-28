@@ -5,7 +5,7 @@ h1 #{@vote.election.title} #{@vote.title}に投票する
     = f.label :name, '名前', class: 'col-sm-2 control-label'
     = f.text_field :name, class: 'col-sm-5 form-control-plaintext'
   .form-group.row
-    = f.label :candidacies, '投票候補', class: 'col-sm-2 control-label'
+    = f.label :candidacies, '投票候補(並べ替える)', class: 'col-sm-2 control-label'
     ul#sortable-candidacies.list-group.col-sm-5
       = fields_for :ballot_candidacies do |fb|
         - @candidacies.each_with_index do |c, i|
