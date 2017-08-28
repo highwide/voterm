@@ -18,6 +18,10 @@ class ElectionsController < ApplicationController
   private
 
   def election_params
-    params.require(:election).permit(:title, :description)
+    params.require(:election).permit(
+      :title,
+      :description,
+      candidates_attributes: [:title, :_destroy]
+    )
   end
 end

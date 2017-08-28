@@ -1,0 +1,5 @@
+.nested-fields
+  .form-group.row
+    = f.label 'title', '候補名', class: 'col-sm-2 control-label'
+    = f.text_field 'title', class: 'col-sm-5 form-control-plaintext'
+    = link_to_remove_association 'remove', f

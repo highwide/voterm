@@ -7,5 +7,13 @@ h1 投票を作成する
   .form-group.row
     = f.label :description, '説明', class: 'col-sm-2 control-label'
     = f.text_field :description, class: 'col-sm-5 form-control-plaintext'
+  span.row
+    | 投票候補を選択する
+  - @vote.election.candidates.each do |c|
+    = fields_for 'candidacies[]' do |fc|
+      .checkbox
+        label.row
+          = fc.check_box 'candidate_id', {}, checked_value = c.id, unchecked_value = ''
+          = c.title
   .form-group.col-sm-offset-2.col-sm-10
     = f.submit '作成する', class: 'btn btn-primary'

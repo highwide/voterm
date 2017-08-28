@@ -16,6 +16,7 @@ gem 'webpacker'
 gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem 'cocoon'
 
 group :development, :test do
   gem 'rack-mini-profiler'
