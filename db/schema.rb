@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709012354) do
+ActiveRecord::Schema.define(version: 20170906013706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,8 +85,8 @@ ActiveRecord::Schema.define(version: 20170709012354) do
   add_foreign_key "candidacies", "votes"
   add_foreign_key "candidates", "elections"
   add_foreign_key "results", "candidacies", column: "win_candidacy_id"
-  add_foreign_key "results", "votes", column: "vote_id"
+  add_foreign_key "results", "votes"
   add_foreign_key "rounds", "candidacies", column: "lose_candidacy_id"
-  add_foreign_key "rounds", "votes", column: "vote_id"
+  add_foreign_key "rounds", "votes"
   add_foreign_key "votes", "elections"
 end
