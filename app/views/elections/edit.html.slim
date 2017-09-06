@@ -1,0 +1,8 @@
+h1 選挙を編集する
+
+- if @election.errors.any?
+  = render partial: 'errors', locals: { messages: @election.errors.full_messages }
+= form_with model: @election, method: :patch, local: true, class: 'form-horizontal' do |f|
+  = render partial: 'form', locals: { f: f }
+  .form-group.col-sm-offset-2.col-sm-10
+    = f.submit '編集する', data: { confirm: '選挙を編集します。よろしいですか' }, class: 'btn btn-primary'

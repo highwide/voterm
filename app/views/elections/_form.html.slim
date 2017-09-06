@@ -1,0 +1,12 @@
+.form-group.row
+  = f.label :title, 'タイトル', class: 'col-sm-2 control-label'
+  = f.text_field :title, class: 'col-sm-5 form-control-plaintext'
+.form-group.row
+  = f.label :description, '説明', class: 'col-sm-2 control-label'
+  = f.text_field :description, class: 'col-sm-5 form-control-plaintext'
+span.row
+  | 投票候補
+= f.fields_for :candidates do |candidate|
+  = render 'candidate_fields', f: candidate
+#links
+  = link_to_add_association '入力欄を増やす', f, :candidates

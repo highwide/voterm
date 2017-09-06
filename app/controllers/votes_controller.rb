@@ -1,6 +1,7 @@
 class VotesController < ApplicationController
   def index
-    @votes = Vote.where(election_id: params[:election_id])
+    @election = Election.includes(:candidates).find(params[:election_id])
+    @votes = @election.votes
   end
 
   def show
