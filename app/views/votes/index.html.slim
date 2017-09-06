@@ -1,8 +1,24 @@
-h1 投票一覧
-
-ul.list-group
-  - @votes.each do |v|
-    li.list-group-item
-      = link_to v.title, vote_path(v.id)
+h1
+  = "#{@election.title}に投票する"
+h2 投票一覧
+- if @votes.present?
+  ul.list-group
+    - @votes.each do |v|
+      li.list-group-item
+        = link_to v.title, vote_path(v.id)
+- else
+  .alert.alert-info この選挙にはまだ投票が作成されていません
 
 = button_to '投票を作成する', new_election_vote_path, method: :get, class: 'btn btn-primary'
+h2
+  = "#{@election.title}で投票できる候補一覧"
+
+- if @election.candidates.present?
+  ul.list-group
+    - @election.candidates.each do |c|
+      li.list-group-item
+        = c.title
+- else
+  .alert.alert-info この選挙にはまだ候補が設定されていません
+
+= button_to 'この選挙を編集する', edit_election_path(@election), method: :get, class: 'btn btn-primary'
