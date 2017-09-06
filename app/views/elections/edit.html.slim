@@ -1,7 +1,7 @@
 h1 選挙を編集する
 
 - if @election.errors.any?
-  = render partial: 'errors', locals: { messages: @election.errors.full_messages }
+  = render partial: 'shared/errors', locals: { messages: @election.errors.full_messages }
 = form_with model: @election, method: :patch, local: true, class: 'form-horizontal' do |f|
   = render partial: 'form', locals: { f: f }
   .form-group.col-sm-offset-2.col-sm-10
