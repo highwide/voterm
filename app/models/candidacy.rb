@@ -1,7 +1,7 @@
 class Candidacy < ApplicationRecord
   belongs_to :candidate
   belongs_to :vote
-  has_many :ballot_candidacies
+  has_many :ballot_candidacies, dependent: :destroy
 
   # return { candicacy.id => { rank => count} }
   def self.to_round_calc_params(vote_id)
