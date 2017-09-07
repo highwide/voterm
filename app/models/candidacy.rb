@@ -3,19 +3,12 @@ class Candidacy < ApplicationRecord
   belongs_to :vote
   has_many :ballot_candidacies, dependent: :destroy
 
-  # return { candicacy.id => { rank => count} }
-  def self.to_round_calc_params(vote_id)
-    where(vote_id: vote_id)
-      .includes(:ballot_candidacies)
-      .reduce({}) do |hash, c|
-        hash.tap { |h| h[c.id] = c.aggregate_ballots }
-      end
-  end
-
-  def aggregate_ballots
-    # ballot_candidacies.group(:rank).count
-    ballot_candidacies
-      .group_by(&:rank)
-      .transform_values(&:count)
+  class << self
+    def without_losing(vote_id)
+      where(vote_id: vote_id)  
+      .where.not(
+        id: Round.without_having_loser.where(vote_id: vote_id).pluck(:lose_candidacy_id)
+      )
+    end
   end
 end
