@@ -6,6 +6,6 @@ h1 = "#{@result.vote.title}の投票結果"
       .panel-title
         h5 = "第#{r.order_num}ラウンドの結果"
     .panel-body
-      = r.report
+      = simple_format(r.report)
 
 = button_to '結果を削除する', result_path, method: :delete, data: { confirm: '投票結果を削除しますがよろしいですか？' }, class: 'btn btn-danger'
