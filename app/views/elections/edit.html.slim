@@ -5,4 +5,4 @@ h1 選挙を編集する
 = form_with model: @election, method: :patch, local: true, class: 'form-horizontal' do |f|
   = render partial: 'form', locals: { f: f }
   .form-group.col-sm-offset-2.col-sm-10
-    = f.submit '編集する', data: { confirm: '選挙を編集します。よろしいですか' }, class: 'btn btn-primary'
+    = f.submit '保存する', data: { confirm: '選挙を保存します。よろしいですか' }, class: 'btn btn-primary'
