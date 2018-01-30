@@ -3,7 +3,7 @@ h1 投票を作成する
 = form_with model: @vote, url: election_votes_path, method: :post, local: true, class: 'form-horizontal' do |f|
   .form-group.row
     = f.label :title, 'タイトル', class: 'col-sm-2 control-label'
-    = f.text_field :title, class: 'col-sm-5 form-control-plaintext'
+    = f.text_field :title, class: 'col-sm-5 form-control-plaintext', required: true
   .form-group.row
     = f.label :description, '説明', class: 'col-sm-2 control-label'
     = f.text_field :description, class: 'col-sm-5 form-control-plaintext'

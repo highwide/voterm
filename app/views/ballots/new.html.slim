@@ -5,7 +5,7 @@ h1 #{@vote.election.title} #{@vote.title}に投票する
 = form_with model: [@vote, @ballot], method: :post, local: true, class: 'form-horizontal' do |f|
   .form-group.row
     = f.label :name, '名前', class: 'col-sm-2 control-label'
-    = f.text_field :name, class: 'col-sm-5 form-control-plaintext'
+    = f.text_field :name, class: 'col-sm-5 form-control-plaintext', required: true
   .form-group.row
     = f.label :candidacies, '投票候補(並べ替える)', class: 'col-sm-2 control-label'
     ul#sortable-candidacies.list-group.col-sm-5
