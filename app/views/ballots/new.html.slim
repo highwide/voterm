@@ -1,10 +1,13 @@
+= javascript_pack_tag 'ballots'
+= stylesheet_link_tag 'ballots'
+
 h1 #{@vote.election.title} #{@vote.title}に投票する
 
 - if @ballot.errors.any?
   = render partial: 'shared/errors', locals: { messages: @ballot.errors.full_messages }
 = form_with model: [@vote, @ballot], method: :post, local: true, class: 'form-horizontal' do |f|
   .form-group.row
-    = f.label :name, '名前', class: 'col-sm-2 control-label'
+    = f.label :name, '名前(必須)', class: 'col-sm-2 control-label'
     = f.text_field :name, class: 'col-sm-5 form-control-plaintext', required: true
   .form-group.row
     = f.label :candidacies, '投票候補(並べ替える)', class: 'col-sm-2 control-label'
@@ -12,7 +15,8 @@ h1 #{@vote.election.title} #{@vote.title}に投票する
       = fields_for :ballot_candidacies do |fb|
         - @vote.candidacies.each_with_index do |c, i|
           li.sortable-candidacy.list-group-item data-candidacy-id="#{c.id}"
-            = c.candidate.title
+            = fa_icon 'sort'
+            = " #{c.candidate.title}"
       = f.hidden_field :sorted_candidacy_ids, value: @vote.candidacies.map(&:id).join(','), id: 'hidden-ids'
   .form-group.col-sm-offset-2.col-sm-10
     = f.submit '投票する', class: 'btn btn-primary'

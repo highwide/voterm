@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'cocoon'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'rack-mini-profiler'

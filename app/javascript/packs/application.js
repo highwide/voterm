@@ -8,3 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+
+require('rails-ujs')
+require('jquery')
+require('cocoon')
