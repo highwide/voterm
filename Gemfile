@@ -38,6 +38,10 @@ group :development do
   gem 'meowcop'
 end
 
+group :test do
+  gem 'database_rewinder'
+end
+
 group :production do
   gem 'rails_12factor'
 end
