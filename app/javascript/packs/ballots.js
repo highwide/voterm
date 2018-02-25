@@ -1,4 +1,4 @@
-//= require sortablejs/Sortable
+import Sortable from 'sortablejs/Sortable';
 
 onload = function() {
   const el = document.getElementById('sortable-candidacies');
