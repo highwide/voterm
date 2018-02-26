@@ -12,3 +12,6 @@ console.log('Hello World from Webpacker')
 require('rails-ujs')
 require('jquery')
 require('cocoon')
+
+import Rails from 'rails-ujs'
+Rails.start()
